@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <title>MyDiaryApp</title>
+  <link rel='stylesheet' href='css/style.css'>
+</head>
+
+<body>
+  
+<div id="title"><h2>MyDiary</h2></div>
+  <div>
+    <input type="date" id="day" name="day">
+  </div>
+
+  <div>
+    
+    <textarea name="" id="text" cols="100" rows="10"></textarea>
+  </div>
+
+  <div>
+    <button id="send">●Save●</button>
+  </div>
+
+  <div>
+    <div id="output"></div>
+  </div>　　　　
+
+  
+  
+  
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase.js"></script>
+
+  <script>
+    
+    var firebaseConfig = {
+      apiKey: "",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: "",
+      appId: ""
+      
+      
+    };
+    
+    firebase.initializeApp(firebaseConfig);
+
+    
+    const newPostRef = firebase.database().ref();
+
+
+    $("#send").on("click", function () {
+
+      
+
+
+      
+      newPostRef.push({
+        
+        day: $("#day").val(),
+        
+        text: $("#text").val(),
+      })
+
+      
+
+      
+      
+      $("#day").val(""); 
+      $("text").val(""); 
+    });
+
+    
+    newPostRef.on("child_added", function (data) {
+      
+    let v = data.val();
+      
+    let str = `<details class="textbox"><summary>${v.day}</summary><div id="nikki">${v.text}</div><button id="done">削除ボタン</button></details>`;
+
+    $("#output").prepend(str);
+
+
+    // 削除ボタン処理
+    // $("#done").click(function() {
+    //   $(".textbox").remove(".textbox");
+    });
+         
+          
+   
+      
+   
+    
+ </script>
+
+</body>
+
+</html>

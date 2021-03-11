@@ -1,0 +1,78 @@
+
+body {
+	
+	background-color: rgb(235, 235, 235);
+	
+}
+
+
+
+
+
+#title {
+    
+    padding: 0.5em;/*文字周りの余白*/
+  color: #010101;/*文字色*/
+  background: whitesmoke;/*背景色*/
+  border-bottom: solid 3px black;/*下線*/
+  text-align: center;
+  font-weight: 800;
+  width:100%;
+  text-align:center;
+}
+
+#title h2{
+	position:relative;
+	display:inline-block;
+}
+#title h2:before, #title h2:after{
+	content:"";
+	display:block;
+	width:200px;
+	height:4px;
+	border-top:1px solid #111;
+	border-bottom:1px solid #111;
+	position:absolute;
+	top:50%;
+	margin-top:-2px;
+}
+#title h2:before{left:-224px;}
+#title h2:after{right:-224px;}
+
+#text {
+    margin-top: 50px;
+    margin-left: 350px;
+    border-color: rgb(255, 215, 104);   
+    background-color:white;  
+    outline: none;        
+}
+
+#send {
+    margin-left: 680px;
+}
+
+
+/* セーブした日記の内容 */
+#output {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #232323;
+    background: rgb(255, 226, 163);
+    border-left: solid 10px #ffc06e;
+    border-bottom: solid 10px whitesmoke;
+    padding-bottom: .5em;
+    border-bottom: 1px solid gray;
+    
+    
+}
+
+#day {
+    margin-left : 625px ; 
+    margin-top: 50px;
+}
+#nikki {
+    padding-bottom: .5em;
+    
+}
+
+
